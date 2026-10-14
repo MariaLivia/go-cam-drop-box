@@ -11,11 +11,11 @@
                                                   <http://geneontology.org/lego/conforms_to_gpad> "false"^^xsd:boolean ;
                                                   <http://geneontology.org/lego/modelstate> "development" ;
                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
                                                   <http://purl.org/dc/elements/1.1/title> "Oxyntomodulin-GLP1R stimulated insulin secretion (Human)"^^xsd:string ;
                                                   <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string ,
                                                                                    "https://www.uniprot.org" ;
-                                                  rdfs:comment "Downstream cAMP units (added 2026-10-13): GLP1R -> GNAS (Gs) -> ADCY8 -> cAMP -> PRKACA and RAPGEF4/Epac2. None tested with OXM; generic GLP1R/Gs/cAMP biology. GLP1R-Gs coupling: human GLP-1R-Gs structure with exendin-P5 (PMID:29466332). ADCY isoform: ADCY8 chosen from mouse Adcy8 KO (PMID:25403481, glucose-induced secretion; GLP-1 coupling not tested); ADCY5 rejected (human islets: couples glucose but not GLP-1, PMID:24740569). ADCY8, Epac2 and most context edges are ISS (GO_REF:0000024) from mouse MGI orthologs. Insulin secretion kept as BP context (GO:0035774), not an activity."^^xsd:string ,
+                                                  rdfs:comment "Downstream cAMP units (added 2026-10-13, revised 2026-10-14): GLP1R -> GNAS (Gs) -> adenylate cyclase -> cAMP -> PRKACA and RAPGEF4/Epac2. Adenylate cyclase enabled by generic protein (PR:000000001): the ADCY isoform acting downstream of GLP1R in human beta cells is not established (ADCY5 couples glucose but not GLP-1 to insulin secretion in human islets, PMID:24740569; mouse Adcy8 KO, PMID:25403481, did not test GLP-1). Adenylate cyclase positively regulates PKA and Epac2 via cAMP (has output / has small molecule activator). Downstream steps not tested with OXM; several edges are ISS from mouse MGI orthologs."^^xsd:string ,
                                                                "Insulin: native OXM infusion increased glucose-dependent insulin secretion rate in obese humans with and without T2DM (PMID:29545266, abstract only) -> IDA on the OXM pathway; GLP1R pathway part of GSIS and GLP1R in beta-cell plasma membrane are IC. GLP1R-dependence of OXM-stimulated insulin secretion shown in mouse Glp1r-/- islets and INS-1 cells (PMID:18669601, abstract only), not used as evidence in this human model."^^xsd:string ,
                                                                "Not modelled: beta-arrestin 1/2 and GRK2 recruitment and arrestin contribution to pERK1/2 (PMID:17395766, 27315480, 38360293); OXM reduction of beta-cell apoptosis (PMID:18669601); OXM action on GCGR. Upstream OXM production by L cells: see gomodel:6ab067da00005905."^^xsd:string ,
                                                                "OXM enabler = GCG peptide chain UniProtKB:P01275-PRO_0000011255 (aa 53-89). OXM->GLP1R IDA from cAMP and BRET assays in GLP-1R-expressing cells (PMID:27315480 full text; PMID:17395766). GLP1R part of AC-activating GPCR pathway: OXM cAMP blocked by adenylyl cyclase inhibitors (PMID:27315480, Fig S1)."^^xsd:string ;
@@ -77,10 +77,6 @@
 <http://purl.obolibrary.org/obo/BFO_0000066> rdf:type owl:ObjectProperty .
 
 
-###  http://purl.obolibrary.org/obo/RO_0002213
-<http://purl.obolibrary.org/obo/RO_0002213> rdf:type owl:ObjectProperty .
-
-
 ###  http://purl.obolibrary.org/obo/RO_0002233
 <http://purl.obolibrary.org/obo/RO_0002233> rdf:type owl:ObjectProperty .
 
@@ -113,10 +109,6 @@
 <http://identifiers.org/uniprot/P17612> rdf:type owl:Class .
 
 
-###  http://identifiers.org/uniprot/P40145
-<http://identifiers.org/uniprot/P40145> rdf:type owl:Class .
-
-
 ###  http://identifiers.org/uniprot/P43220
 <http://identifiers.org/uniprot/P43220> rdf:type owl:Class .
 
@@ -133,12 +125,24 @@
 <http://purl.obolibrary.org/obo/CHEBI_17489> rdf:type owl:Class .
 
 
+###  http://purl.obolibrary.org/obo/CHEBI_33695
+<http://purl.obolibrary.org/obo/CHEBI_33695> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/CHEBI_36080
+<http://purl.obolibrary.org/obo/CHEBI_36080> rdf:type owl:Class .
+
+
 ###  http://purl.obolibrary.org/obo/CL_0000169
 <http://purl.obolibrary.org/obo/CL_0000169> rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/ECO_0000250
 <http://purl.obolibrary.org/obo/ECO_0000250> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/ECO_0000304
+<http://purl.obolibrary.org/obo/ECO_0000304> rdf:type owl:Class .
 
 
 ###  http://purl.obolibrary.org/obo/ECO_0000305
@@ -195,6 +199,10 @@
 
 ###  http://purl.obolibrary.org/obo/GO_0044508
 <http://purl.obolibrary.org/obo/GO_0044508> rdf:type owl:Class .
+
+
+###  http://purl.obolibrary.org/obo/PR_000000001
+<http://purl.obolibrary.org/obo/PR_000000001> rdf:type owl:Class .
 
 
 #################################################################
@@ -350,9 +358,10 @@
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00006821> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002629> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007469> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007480> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007976> ,
+                                           <http://model.geneontology.org/6ab067da00006813/6ab067da00007977> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -361,10 +370,12 @@
    owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00006824> ;
    <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00006854> ,
-                                           <http://model.geneontology.org/6ab067da00006813/6ab067da00006855> ;
+                                           <http://model.geneontology.org/6ab067da00006813/6ab067da00006855> ,
+                                           <http://model.geneontology.org/6ab067da00006813/6ab067da00007980> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-09"^^xsd:string ;
-   <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+   <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string ,
+                                    "https://www.uniprot.org"
  ] .
 
 [ rdf:type owl:Axiom ;
@@ -381,9 +392,10 @@
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00006821> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007474> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007479> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007479> ,
+                                           <http://model.geneontology.org/6ab067da00006813/6ab067da00007975> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -427,10 +439,11 @@
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00006824> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00006825> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00006847> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007999> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-09"^^xsd:string ;
-   <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+   <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string ,
+                                    "https://www.uniprot.org"
  ] .
 
 
@@ -527,31 +540,20 @@
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00006845
 <http://model.geneontology.org/6ab067da00006813/6ab067da00006845> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "GO:0044508"^^xsd:string ;
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-09"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:27315480"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string ,
                                                                                                    "https://www.uniprot.org" ;
-                                                                  rdfs:comment """Evidence dispute: Cell-surface expression was detected either by using a cell-surface ELISA to
+                                                                  rdfs:comment """Justification for evidence: Cell-surface expression was detected either by using a cell-surface ELISA to
 detect a double c-Myc epitope label incorporated with the N-terminal region
 of the GLP-1R constructs or by calculation of the Bmax in the radioligandbinding
-experiments. Shall I use IDA ?"""^^xsd:string .
+experiments."""^^xsd:string .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00006846
 <http://model.geneontology.org/6ab067da00006813/6ab067da00006846> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "GO:0035774"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-09"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29545266"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "http://geneontology.org"^^xsd:string .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00006847
-<http://model.geneontology.org/6ab067da00006813/6ab067da00006847> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000305> ;
                                                                   <http://geneontology.org/lego/evidence-with> "GO:0035774"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
@@ -639,9 +641,10 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007469> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007472> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007477> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007477> ,
+                                           <http://model.geneontology.org/6ab067da00006813/6ab067da00007978> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -659,9 +662,9 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007469> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002233> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007486> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007493> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007974> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -679,9 +682,9 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007469> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002629> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007494> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007983> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -714,9 +717,9 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007472> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007473> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007478> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007979> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -759,18 +762,8 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007477> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000314> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:10200251"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007478
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007478> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "GO:0035774"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29545266"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29466332"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
@@ -783,24 +776,14 @@ experiments. Shall I use IDA ?"""^^xsd:string .
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007480
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007480> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29466332"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007481
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/GO_0004016> ;
                                                                   <http://purl.obolibrary.org/obo/BFO_0000050> <http://model.geneontology.org/6ab067da00006813/6ab067da00007484> ;
-                                                                  <http://purl.obolibrary.org/obo/BFO_0000066> <http://model.geneontology.org/6ab067da00006813/6ab067da00007483> ;
-                                                                  <http://purl.obolibrary.org/obo/RO_0002213> <http://model.geneontology.org/6ab067da00006813/6ab067da00007495> ,
-                                                                                                              <http://model.geneontology.org/6ab067da00006813/6ab067da00007505> ;
                                                                   <http://purl.obolibrary.org/obo/RO_0002234> <http://model.geneontology.org/6ab067da00006813/6ab067da00007487> ;
                                                                   <http://purl.obolibrary.org/obo/RO_0002333> <http://model.geneontology.org/6ab067da00006813/6ab067da00007482> ;
+                                                                  <http://purl.obolibrary.org/obo/RO_0002629> <http://model.geneontology.org/6ab067da00006813/6ab067da00007495> ,
+                                                                                                              <http://model.geneontology.org/6ab067da00006813/6ab067da00007505> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
@@ -809,39 +792,9 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007484> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007491> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007986> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-   <http://purl.org/pav/providedBy> "https://www.uniprot.org"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
-   owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000066> ;
-   owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007483> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007490> ;
-   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-   <http://purl.org/pav/providedBy> "https://www.uniprot.org"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
-   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002213> ;
-   owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007495> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007515> ;
-   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-   <http://purl.org/pav/providedBy> "https://www.uniprot.org"
- ] .
-
-[ rdf:type owl:Axiom ;
-   owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
-   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002213> ;
-   owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007505> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007516> ;
-   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -849,9 +802,9 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002234> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007487> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007489> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00008004> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -859,27 +812,41 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002333> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007482> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007488> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007984> ,
+                                           <http://model.geneontology.org/6ab067da00006813/6ab067da00007985> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+   <http://purl.org/pav/providedBy> "https://www.uniprot.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002629> ;
+   owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007495> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00008002> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+   <http://purl.org/pav/providedBy> "https://www.uniprot.org"
+ ] .
+
+[ rdf:type owl:Axiom ;
+   owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007481> ;
+   owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0002629> ;
+   owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007505> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00008003> ;
+   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007482
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007482> rdf:type owl:NamedIndividual ,
-                                                                           <http://identifiers.org/uniprot/P40145> ;
+                                                                           <http://purl.obolibrary.org/obo/PR_000000001> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007483
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007483> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/GO_0005886> ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" ;
+                                                                  rdfs:comment "General: Cannot find any article or acceptable evidence to name a specific adenylate cyclase playing a role in OXM-dependent regulation of insulin production via GLP1R. The problem is that OXM is a biased agonist of GLP1R, i.e. binds the receptor as GLP1 but downstream effects are different."^^xsd:string .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007484
@@ -894,9 +861,9 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007484> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/BFO_0000050> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007485> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007492> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007987> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+   <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
 
@@ -911,10 +878,11 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007486
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007486> rdf:type owl:NamedIndividual ,
-                                                                           <http://identifiers.org/uniprot/P40145> ;
+                                                                           <http://purl.obolibrary.org/obo/PR_000000001> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" ;
+                                                                  rdfs:comment "General: Cannot find any article or acceptable evidence to name a specific adenylate cyclase playing a role in OXM-dependent regulation of insulin production via GLP1R. The problem is that OXM is a biased agonist of GLP1R, i.e. binds the receptor as GLP1 but downstream effects are different."^^xsd:string .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007487
@@ -940,81 +908,11 @@ experiments. Shall I use IDA ?"""^^xsd:string .
    owl:annotatedSource <http://model.geneontology.org/6ab067da00006813/6ab067da00007487> ;
    owl:annotatedProperty <http://purl.obolibrary.org/obo/RO_0012005> ;
    owl:annotatedTarget <http://model.geneontology.org/6ab067da00006813/6ab067da00007505> ;
-   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007514> ;
+   <http://geneontology.org/lego/evidence> <http://model.geneontology.org/6ab067da00006813/6ab067da00007611> ;
    <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
    <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
    <http://purl.org/pav/providedBy> "https://www.uniprot.org"
  ] .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007488
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007488> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1341110"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007489
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007489> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1341110"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007490
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007490> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1341110"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007491
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007491> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1341110"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007492
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007492> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1341110"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007493
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007493> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:95777"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
-
-
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007494
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007494> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:95777"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
-                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007495
@@ -1103,19 +1001,20 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007500
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007500> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:97592"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:11029056"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007501
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007501> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:97592"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:97592"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
@@ -1123,20 +1022,20 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007502
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007502> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:97592"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:97592"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007503
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007503> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "GO:0035774"^^xsd:string ;
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:97592"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29545266"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
@@ -1229,14 +1128,14 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007509> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/GO_0035774> ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007510
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007510> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1917723"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:1917723"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
@@ -1246,7 +1145,7 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007511
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007511> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1917723"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:1917723"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
@@ -1256,7 +1155,7 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007512
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007512> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1917723"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:1917723"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
@@ -1266,42 +1165,172 @@ experiments. Shall I use IDA ?"""^^xsd:string .
 ###  http://model.geneontology.org/6ab067da00006813/6ab067da00007513
 <http://model.geneontology.org/6ab067da00006813/6ab067da00007513> rdf:type owl:NamedIndividual ,
                                                                            <http://purl.obolibrary.org/obo/ECO_0000305> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "GO:0035774"^^xsd:string ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0007189"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:18040047"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007611
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007611> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "MGI:1917723"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
                                                                   <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007974
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007974> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0007189"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29466332"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007975
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007975> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:22930710"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007976
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007976> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29466332"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007977
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007977> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:22930710"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007978
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007978> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:22930710"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007979
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007979> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000304> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:22930710"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" ;
+                                                                  rdfs:comment "Justification for evidence: TAS used instead of ISS because I cannot access full text and I do not know which animals have been used for in vivo measurements of insulin secretion. From the abstract it is clear that insulin secretion is stimulated by oxyntomodulin binding to GLP-1 receptor and activation of the α subunit of heterotrimeric G protein and cAMP accumulation."^^xsd:string .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007980
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007980> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:22930710"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007983
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007983> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0007189"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29466332"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007984
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007984> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0007189"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29466332"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007985
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007985> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0007189"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:22930710"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007986
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007986> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000314> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:29466332"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007987
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007987> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000304> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:22930710"^^xsd:string ;
+                                                                  <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
+
+
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00007999
+<http://model.geneontology.org/6ab067da00006813/6ab067da00007999> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/source> "PMID:29545266"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007514
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007514> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1917723"^^xsd:string ;
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00008002
+<http://model.geneontology.org/6ab067da00006813/6ab067da00008002> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0004016"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:11029056"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007515
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007515> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1341110"^^xsd:string ,
-                                                                                                               "MGI:MGI:97592"^^xsd:string ;
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00008003
+<http://model.geneontology.org/6ab067da00006813/6ab067da00008003> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0004016"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "PMID:18040047"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
-###  http://model.geneontology.org/6ab067da00006813/6ab067da00007516
-<http://model.geneontology.org/6ab067da00006813/6ab067da00007516> rdf:type owl:NamedIndividual ,
-                                                                           <http://purl.obolibrary.org/obo/ECO_0000250> ;
-                                                                  <http://geneontology.org/lego/evidence-with> "MGI:MGI:1341110"^^xsd:string ,
-                                                                                                               "MGI:MGI:1917723"^^xsd:string ;
+###  http://model.geneontology.org/6ab067da00006813/6ab067da00008004
+<http://model.geneontology.org/6ab067da00006813/6ab067da00008004> rdf:type owl:NamedIndividual ,
+                                                                           <http://purl.obolibrary.org/obo/ECO_0000305> ;
+                                                                  <http://geneontology.org/lego/evidence-with> "GO:0004016, GO:0007189"^^xsd:string ;
                                                                   <http://purl.org/dc/elements/1.1/contributor> "https://orcid.org/0000-0002-5283-6593" ;
-                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-13"^^xsd:string ;
-                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000024"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/date> "2026-10-14"^^xsd:string ;
+                                                                  <http://purl.org/dc/elements/1.1/source> "GO_REF:0000036"^^xsd:string ;
                                                                   <http://purl.org/pav/providedBy> "https://www.uniprot.org" .
 
 
